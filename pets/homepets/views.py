@@ -54,7 +54,6 @@ class HomepetsHome(DataMixin, ListView):
 def about(request):
     contact_list = Homepets.objects.all()
     paginator = Paginator(contact_list, 3)
-
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'homepets/about.html', {'page_obj': page_obj, 'menu': menu, 'title': 'О сайте'})
